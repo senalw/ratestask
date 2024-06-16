@@ -1,4 +1,4 @@
-flask==2.2.3
+flask==2.2.5
 flask-swagger-ui==4.11.1
 psycopg2-binary==2.9.7
 requests==2.31.0
