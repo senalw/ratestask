@@ -3,7 +3,7 @@
 - [Overview](#Overview)<br/>
 - [Running App with Docker](#Running-App-with-Docker)<br/>
 - [Setting up App locally](#Setting-up-App-locally)<br/>
-- [Database Schema](#Database Sechema)<br/>
+- [Database Schema](#Database-Schema)<br/>
 - [Notes](#Notes)<br/>
 
 ## Overview
