@@ -1,24 +1,26 @@
 version: '1'
 services:
-#  app:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    links:
-#      - db:db
-#    ports:
-#      - "8015:8015"
-#    environment:
-#      - DB_URL=postgresql+psycopg2://postgres:ratestask@db:5432/rates-service
-#    depends_on:
-#      - db
+  app:
+    build:
+      context: .
+      target: app
+    links:
+      - db:db
+    ports:
+      - "8015:8015"
+    environment:
+      - DB_URL=postgresql+psycopg2://ratestask:ratestask@db:5432/rates-service
+    depends_on:
+      - db
+    command:
+      ["make", "run"]
   db:
     build:
       context: .
-      dockerfile: Dockerfile
+      target: database
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: ratestask
       POSTGRES_PASSWORD: ratestask
       POSTGRES_DB: rates-service

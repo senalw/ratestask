@@ -27,7 +27,7 @@ lint:
 
 .PHONY: run
 run:
-	./venv/bin/python3 -m src.app
+	PYTHONPATH=./src: ./venv/bin/python3 -m src.app
 
 .PHONY: clean
 clean:

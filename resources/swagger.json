@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rates API",
+    "version": "1.0.0",
+    "description": "API to fetch average rates"
+  },
+  "paths": {
+    "/v1/rates/": {
+      "get": {
+        "summary": "Fetch average rates",
+        "operationId": "fetch_cart_items",
+        "parameters": [
+          {
+            "name": "date_from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "The start date for the rates"
+          },
+          {
+            "name": "date_to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "The end date for the rates"
+          },
+          {
+            "name": "origin",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The origin port code"
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The destination region"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of average rates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rates": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "average_price": {
+                            "type": "integer",
+                            "nullable": true
+                          },
+                          "day": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "rates": [
+                    {
+                      "average_price": 1112,
+                      "day": "2016-01-01"
+                    },
+                    {
+                      "average_price": 1112,
+                      "day": "2016-01-02"
+                    },
+                    {
+                      "average_price": null,
+                      "day": "2016-01-04"
+                    },
+                    {
+                      "average_price": 1142,
+                      "day": "2016-01-05"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

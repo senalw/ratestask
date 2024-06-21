@@ -16,7 +16,7 @@ class RatesRepository(ABC):
 
 
 class RatesRepositoryImpl(RatesRepository):
-    def __init__(self, db: PostgresClient, config: Config.ServiceConfig) -> None:
+    def __init__(self, db: PostgresClient, config: Config.AppConfig) -> None:
         self.db: PostgresClient = db
         self.config = config
 

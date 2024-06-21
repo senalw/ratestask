@@ -3,10 +3,18 @@
 - [Overview](#Overview)<br/>
 - [Running App with Docker](#Running-App-with-Docker)<br/>
 - [Setting up App locally](#Setting-up-App-locally)<br/>
+- [Database Schema](#Database Sechema)<br/>
 - [Notes](#Notes)<br/>
 
 ## Overview
-This is a simple REST API which provides capabilities to show average price for each day for given origin to destination of freight.
+This is a simple REST API that provides the capability to show the average price for each day for a given origin to destination of freight. 
+The following user stories are covered by the app:
+
+* As a user, I want to query the average price of freights for a given origin and destination.
+* As a user, I should be able to get the average price by passing either a port code or region slug for the origin and destination, and vice-versa.
+* As a user, I should be able to query for a given time range.
+* As a user, I expect null to be returned when there are fewer than 3 prices present for a day on a given route.
+* As a user, I expect to query without passing a date, with the current date (today) being considered for querying. (Additional feature)
 
 #### Input
 
@@ -35,6 +43,24 @@ destination
 ]
 ```
 
+## Running App with Docker
+
+#### 1. Build the image
+
+```shell
+docker compose build
+```
+
+#### 2. Run the services
+
+```shell
+docker compose up
+```
+Point your browser to [http://localhost:8015/swagger](http://localhost:8015/swagger) to access swagger UI.
+
+
+## Setting up App locally
+
 #### 1. System Requirements
 
 ```shell
@@ -47,4 +73,15 @@ python 3.11
 make setup
 ```
 
+#### 3. Set Environments variables
 
+Environment variables needed to run the app
+```shell
+export DB_URL=<db-url>
+```
+DB URL should be in following format. Refer [this](https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql)
+
+## Database Schema
+Here's the ER-diagram of the database.
+
+![ER-Diagram.png](resources%2Fstatic%2FER-Diagram.png)

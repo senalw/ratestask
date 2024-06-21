@@ -1,3 +1,5 @@
+import logging
+
 from config.config import Config
 from core.exceptions.error_handler import register_error_handlers
 from core.infra import PostgresClient
@@ -6,12 +8,17 @@ from module.rates.repository import RatesRepository, RatesRepositoryImpl
 from module.rates.service import RatesService
 from src.routers.v1 import rate, swagger
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s.%(msecs)03d - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
+
 
 def initialize_services(app: Flask) -> None:
     db: PostgresClient = PostgresClient(app.configs)
-    rates_repository: RatesRepository = RatesRepositoryImpl(
-        db, app.configs.service_config
-    )
+    rates_repository: RatesRepository = RatesRepositoryImpl(db, app.configs.app_config)
     app.rates_service: RatesService = RatesService(rates_repository)
 
 
