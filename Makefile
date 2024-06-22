@@ -13,6 +13,24 @@ setup-style:
 .PHONY: setup-dev
 setup-dev: setup setup-style
 
+create-reports-dir:
+	mkdir -p reports
+
+.PHONY: setup-test
+setup-test: setup
+	./venv/bin/pip3 install -r requirements-test.txt
+
+.PHONY: test-unit-ci
+test-unit-ci: create-reports-dir
+	PYTHONPATH=. \
+	    ./venv/bin/pytest \
+	    --cov-report xml:reports/coverage.xml \
+	    --cov-report html:reports/htmlcov/ \
+	    --junitxml=./reports/junit.xml \
+		--cov=src \
+		--full-trace \
+		tests/unit/
+
 .PHONY: check_format
 check_format: #check which files will be reformatted
 	./venv/bin/black --check .

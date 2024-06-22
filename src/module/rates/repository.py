@@ -2,16 +2,16 @@ from abc import ABC
 from datetime import date
 from typing import List
 
-from config.config import Config
-from core.infra import PostgresClient
-from module.rates.domain.rates_dto import Rates
 from sqlalchemy import text
+from src.config.config import Config
+from src.core.infra import PostgresClient
+from src.module.rates.domain import RatesDTO
 
 
 class RatesRepository(ABC):
     def get_rates(
         self, date_from: date, date_to: date, origin: str, destination: str
-    ) -> List[Rates]:
+    ) -> List[RatesDTO]:
         raise NotImplementedError
 
 
@@ -22,7 +22,7 @@ class RatesRepositoryImpl(RatesRepository):
 
     def get_rates(
         self, date_from: date, date_to: date, origin: str, destination: str
-    ) -> List[Rates]:
+    ) -> List[RatesDTO]:
         with self.db.get_session() as session:
             query = text(
                 """
@@ -87,7 +87,7 @@ class RatesRepositoryImpl(RatesRepository):
             )
 
             return [
-                Rates(
+                RatesDTO(
                     day=row.day.strftime(self.config.date_format),
                     average_price=round(row.average_price)
                     if row.average_price is not None

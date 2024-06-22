@@ -1,7 +1,6 @@
-from module.rates.repository import RatesRepository
-from module.rates.usecase import GetAverageRateUseCase
-from routers.schema import RatesRequest
-from routers.schema.base_schema import Response
+from src.module.rates.repository import RatesRepository
+from src.module.rates.usecase import GetAverageRateUseCase
+from src.routers.v1.schema import RatesRequest, Response
 
 
 class RatesService:

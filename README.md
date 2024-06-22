@@ -85,3 +85,10 @@ DB URL should be in following format. Refer [this](https://docs.sqlalchemy.org/e
 Here's the ER-diagram of the database.
 
 ![ER-Diagram.png](resources%2Fstatic%2FER-Diagram.png)
+
+## Notes
+* The API has been developed mostly for happy path flow. The probable improvements
+  * Enable pagination for the get rates endpoint.
+  * Although an ORM framework is used, its ORM features have not been utilized since the assignment requires raw SQL.
+    (Therefore, model classes for database schema have not been implemented)
+  * Average price has been rounded to the nearest integer as the output of the example is expected to be an integer.

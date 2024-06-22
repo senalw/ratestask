@@ -1,11 +1,11 @@
 import datetime
 from typing import Any, Dict, List, Optional, Type
 
-from core.exceptions import BadRequestError
-from module.rates.domain.rates_dto import Rates
 from pydantic import model_validator
 from pydantic.v1 import Field
-from routers.schema.base_schema import Request, Response
+from src.core.exceptions import BadRequestError
+from src.module.rates.domain import RatesDTO
+from src.routers.v1.schema.base_schema import Request, Response
 
 
 class RatesRequest(Request):
@@ -38,8 +38,12 @@ class RatesRequest(Request):
         date_to = values.get("date_to")
         if date_from and date_to and date_to < date_from:
             raise BadRequestError("date_to must be after date_from")
+        if not values.get("origin"):
+            raise BadRequestError("origin must be set")
+        if not values.get("destination"):
+            raise BadRequestError("destination must be set")
         return values
 
 
 class RatesResponse(Response):
-    rates: List[Rates]
+    rates: List[RatesDTO]
