@@ -5,6 +5,6 @@ psycopg2-binary==2.9.7
 requests==2.31.0
 SQLAlchemy==2.0.20
 Flask-API==3.1
-pydantic~=2.6.1
+pydantic==2.6.1
 Werkzeug==2.3.3
 Flask-Pydantic==0.12.0
