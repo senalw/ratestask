@@ -16,7 +16,7 @@ The following user stories are covered by the app:
 * As a user, I should be able to query for a given time range.
 * As a user, I expect null to be returned when there are fewer than 3 prices present for a day on a given route.
 * As a user, I expect to query without passing a date range. Then the API should consider the current date (today) for querying. 
-(Additional feature as it provides more practicality of using the API)
+(This provides more practicality of using the API - Additional feature)
 
 #### Query Parameters
 - date_from
