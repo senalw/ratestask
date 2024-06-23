@@ -15,7 +15,8 @@ The following user stories are covered by the app:
 * As a user, I should be able to get the average price by passing either a port code or region slug for the origin and destination, and vice-versa.
 * As a user, I should be able to query for a given time range.
 * As a user, I expect null to be returned when there are fewer than 3 prices present for a day on a given route.
-* As a user, I expect to query without passing a date, with the current date (today) being considered for querying. (Additional feature)
+* As a user, I expect to query without passing a date range. Then the API should consider the current date (today) for querying. 
+(Additional feature as it provides more practicality of using the API)
 
 #### Query Parameters
 - date_from
