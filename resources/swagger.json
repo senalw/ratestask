@@ -76,26 +76,24 @@
                     }
                   }
                 },
-                "example": {
-                  "rates": [
-                    {
-                      "average_price": 1112,
-                      "day": "2016-01-01"
-                    },
-                    {
-                      "average_price": 1112,
-                      "day": "2016-01-02"
-                    },
-                    {
-                      "average_price": null,
-                      "day": "2016-01-04"
-                    },
-                    {
-                      "average_price": 1142,
-                      "day": "2016-01-05"
-                    }
-                  ]
-                }
+                "example": [
+                  {
+                    "average_price": 1112,
+                    "day": "2016-01-01"
+                  },
+                  {
+                    "average_price": 1112,
+                    "day": "2016-01-02"
+                  },
+                  {
+                    "average_price": null,
+                    "day": "2016-01-04"
+                  },
+                  {
+                    "average_price": 1142,
+                    "day": "2016-01-05"
+                  }
+                ]
               }
             }
           }
