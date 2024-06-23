@@ -27,15 +27,13 @@ def mock_rates_service(app):
         yield mock_service
 
 
-def test_fetch_average_rates_valid_request(client, mock_rates_service):
+def test_fetch_average_rates_valid_request(client, mock_rates_service) -> None:
     # Mock the rates_service response
     mock_response = MagicMock()
-    mock_response.dict.return_value = {
-        "rates": [
-            {"day": "2024-06-01", "average_price": 1000},
-            {"day": "2024-06-02", "average_price": 1100},
-        ]
-    }
+    mock_response.dict.return_value = [
+        {"day": "2024-06-01", "average_price": 1000},
+        {"day": "2024-06-02", "average_price": 1100},
+    ]
     mock_rates_service.get_average_rates.return_value = mock_response
 
     # Define the query parameters
@@ -54,7 +52,7 @@ def test_fetch_average_rates_valid_request(client, mock_rates_service):
     assert response.json == mock_response.dict.return_value
 
 
-def test_fetch_average_rates_invalid_date_range(client, mock_rates_service):
+def test_fetch_average_rates_invalid_date_range(client, mock_rates_service) -> None:
     # Define the query parameters with invalid date range
     query_params = {
         "date_from": "2024-06-03",
@@ -72,7 +70,7 @@ def test_fetch_average_rates_invalid_date_range(client, mock_rates_service):
     assert error.value.message == "date_to must be after date_from"
 
 
-def test_fetch_average_rates_missing_origin(client, mock_rates_service):
+def test_fetch_average_rates_missing_origin(client, mock_rates_service) -> None:
     # Define the query parameters with missing origin
     query_params = {
         "date_from": "2024-06-01",
@@ -89,7 +87,7 @@ def test_fetch_average_rates_missing_origin(client, mock_rates_service):
     assert error.value.message == "origin must be set"
 
 
-def test_fetch_average_rates_missing_destination(client, mock_rates_service):
+def test_fetch_average_rates_missing_destination(client, mock_rates_service) -> None:
     # Define the query parameters with missing destination
     query_params = {
         "date_from": "2024-06-01",

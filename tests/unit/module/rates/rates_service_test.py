@@ -32,7 +32,7 @@ def test_get_average_rates_success(mock_execute, rates_service: RatesService) ->
 
     # Create a mock response
     mock_response = RatesResponse(
-        rates=[
+        [
             RatesDTO(day="2023-01-01", average_price=100),
             RatesDTO(day="2023-01-02", average_price=200),
         ]

@@ -18,4 +18,4 @@ class GetAverageRateUseCase(UseCase):
             request.origin,
             request.destination,
         )
-        return RatesResponse(rates=rates)
+        return RatesResponse.model_validate(rates)

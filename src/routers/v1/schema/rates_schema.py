@@ -1,7 +1,7 @@
 import datetime
 from typing import Any, Dict, List, Optional, Type
 
-from pydantic import model_validator
+from pydantic import model_validator, RootModel
 from pydantic.v1 import Field
 from src.core.exceptions import BadRequestError
 from src.module.rates.domain import RatesDTO
@@ -45,5 +45,5 @@ class RatesRequest(Request):
         return values
 
 
-class RatesResponse(Response):
-    rates: List[RatesDTO]
+class RatesResponse(Response, RootModel[List[RatesDTO]]):
+    pass
