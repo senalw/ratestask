@@ -8,7 +8,7 @@
 - [Notes](#Notes)<br/>
 
 ## Overview
-This is a simple REST API that provides the capability to show the average price for each day for a given origin to destination of freight. 
+This is a simple REST API that provides the capability to show the average price for each day for a given origin to destination of freights. 
 The following user stories are covered by the app:
 
 * As a user, I want to query the average price of freights for a given origin and destination.
