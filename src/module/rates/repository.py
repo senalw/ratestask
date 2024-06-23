@@ -30,7 +30,7 @@ class RatesRepositoryImpl(RatesRepository):
                     SELECT slug, name, parent_slug
                     FROM regions
                     WHERE slug = :origin
-                    UNION ALL
+                    UNION
                     SELECT r.slug, r.name, r.parent_slug
                     FROM regions r
                     JOIN region_tree rt ON r.parent_slug = rt.slug
@@ -46,7 +46,7 @@ class RatesRepositoryImpl(RatesRepository):
                     SELECT slug, name, parent_slug
                     FROM regions
                     WHERE slug = :destination
-                    UNION ALL
+                    UNION
                     SELECT r.slug, r.name, r.parent_slug
                     FROM regions r
                     JOIN destination_region_tree drt ON r.parent_slug = drt.slug
