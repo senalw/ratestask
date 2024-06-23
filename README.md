@@ -3,6 +3,7 @@
 - [Overview](#Overview)<br/>
 - [Running App with Docker](#Running-App-with-Docker)<br/>
 - [Setting up App locally](#Setting-up-App-locally)<br/>
+- [Run unit tests locally](#Run-unit-tests-locally)<br/>
 - [Database Schema](#Database-Schema)<br/>
 - [Notes](#Notes)<br/>
 
@@ -16,14 +17,11 @@ The following user stories are covered by the app:
 * As a user, I expect null to be returned when there are fewer than 3 prices present for a day on a given route.
 * As a user, I expect to query without passing a date, with the current date (today) being considered for querying. (Additional feature)
 
-#### Input
-
-```json
-date_from
-date_to
-origin
-destination
-```
+#### Query Parameters
+- date_from
+- date_to
+- origin
+- destination
 
 #### Output
 ```json
@@ -81,6 +79,14 @@ export DB_URL=<db-url>
 ```
 DB URL should be in following format. Refer [this](https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql)
 
+## Run unit tests locally
+
+```shell
+make test-unit-ci
+```
+
+Test report location: [reports](reports)
+
 ## Database Schema
 Here's the ER-diagram of the database.
 
@@ -91,4 +97,4 @@ Here's the ER-diagram of the database.
   * Enable pagination for the get rates endpoint.
   * Although an ORM framework is used, its ORM features have not been utilized since the assignment requires raw SQL.
     (Therefore, model classes for database schema have not been implemented)
-  * Average price has been rounded to the nearest integer as the output of the example is expected to be an integer.
+  * Average price has been rounded to the nearest integer as the output of the example is expected to be an integer according to the sample response.
