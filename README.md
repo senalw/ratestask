@@ -4,6 +4,7 @@
 - [Running App with Docker](#Running-App-with-Docker)<br/>
 - [Setting up App locally](#Setting-up-App-locally)<br/>
 - [Run unit tests locally](#Run-unit-tests-locally)<br/>
+- [Sample Curl Request](Sample-Curl-Request)<br/>
 - [Database Schema](#Database-Schema)<br/>
 - [Notes](#Notes)<br/>
 
@@ -92,6 +93,31 @@ make test-unit-ci
 ```
 
 Test report location: [reports](reports)
+
+## Sample Curl Request
+```shell
+curl -s http://127.0.0.1:8015/v1/rates/?date_from=2016-01-01&date_to=2016-01-10&origin=CNSGH&destination=north_europe_main | jq .
+```
+
+E.g.
+
+```shell
+curl -s http://127.0.0.1:8015/v1/rates/\?date_from\=2016-01-01\&date_to\=2016-01-04\&origin\=CNSGH\&destination\=north_europe_main | jq .
+[
+  {
+    "average_price": 1112,
+    "day": "2016-01-01"
+  },
+  {
+    "average_price": 1112,
+    "day": "2016-01-02"
+  },
+  {
+    "average_price": null,
+    "day": "2016-01-04"
+  }
+]
+```
 
 ## Database Schema
 Here's the ER-diagram of the database.
