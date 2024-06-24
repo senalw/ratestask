@@ -82,6 +82,12 @@ DB URL should be in following format. Refer [this](https://docs.sqlalchemy.org/e
 
 ## Run unit tests locally
 
+### Install test dependencies
+```shell
+make setup-test
+```
+
+### Run Tests
 ```shell
 make test-unit-ci
 ```
