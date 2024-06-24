@@ -11,9 +11,8 @@
 This is a simple REST API that provides the capability to show the average price for each day for a given origin to destination of freights. 
 The following user stories are covered by the app:
 
-* As a user, I want to query the average price of freights for a given origin and destination.
+* As a user, I want to query the average price of freights for a given origin and destination for a given time range.
 * As a user, I should be able to get the average price by passing either a port code or region slug for the origin and destination, and vice-versa.
-* As a user, I should be able to query for a given time range.
 * As a user, I expect null to be returned when there are fewer than 3 prices present for a day on a given route.
 * As a user, I expect to query without passing a date range. Then the API should consider the current date (today) for querying. 
 (This provides more practicality of using the API - Additional feature)
