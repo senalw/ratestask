@@ -11,7 +11,7 @@ setup-style:
 	./venv/bin/pip3 install --no-cache-dir -r requirements-style.txt
 
 .PHONY: setup-dev
-setup-dev: setup setup-style
+setup-dev: setup setup-style setup-test
 
 create-reports-dir:
 	mkdir -p reports

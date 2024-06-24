@@ -3,8 +3,9 @@
 - [Overview](#Overview)<br/>
 - [Running App with Docker](#Running-App-with-Docker)<br/>
 - [Setting up App locally](#Setting-up-App-locally)<br/>
+- [Dev setup locally](#Dev-setup-locally)<br/>
 - [Run unit tests locally](#Run-unit-tests-locally)<br/>
-- [Sample Curl Request](Sample-Curl-Request)<br/>
+- [Sample Curl Request](#Sample-Curl-Request)<br/>
 - [Database Schema](#Database-Schema)<br/>
 - [Notes](#Notes)<br/>
 
@@ -79,6 +80,12 @@ Environment variables needed to run the app
 export DB_URL=<db-url>
 ```
 DB URL should be in following format. Refer [this](https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql)
+
+## Dev setup locally
+Setup development environment.
+```shell
+make setup-dev
+```
 
 ## Run unit tests locally
 
